@@ -28,11 +28,14 @@ function Registration() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password }),
-      });
+      const response = await fetch(
+        "https://bus-ticketing-backend.vercel.app/register", // <-- Live backend URL
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, password }),
+        }
+      );
 
       const data = await response.json();
 
@@ -88,7 +91,8 @@ function Registration() {
       </div>
 
       <style jsx="true">{`
-        body, html {
+        body,
+        html {
           margin: 0;
           padding: 0;
           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -106,7 +110,7 @@ function Registration() {
           background: #fff;
           padding: 40px 30px;
           border-radius: 15px;
-          box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
           width: 100%;
           max-width: 400px;
           text-align: center;
@@ -115,7 +119,7 @@ function Registration() {
 
         .card:hover {
           transform: translateY(-5px);
-          box-shadow: 0 25px 45px rgba(0,0,0,0.3);
+          box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
         }
 
         .card h1 {
